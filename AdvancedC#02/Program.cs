@@ -70,6 +70,26 @@
             }
 
             #endregion
+
+            #region Task3.1
+
+            /*
+            Write a method called PrintReport that accepts the product list and an Action.
+            The method loops through all products and calls the action on each one.
+            The caller decides what to print by passing a lambda.  
+            Scenario 1  Short Report: Print each product as Name - $Price  
+            Scenario 2  Detailed Report: Print each product as [Category] Name | Price: $X | Stock: Y 
+            */
+            Console.WriteLine("");
+            Action<Product> shortReport = p => Console.WriteLine($"{p.Name} - ${p.Price}");
+            Action<Product> detailedReport = p => Console.WriteLine($"[{p.Category}] {p.Name} | Price:${p.Price} | Stock:{p.Stock}");
+            Console.WriteLine("---Short Report---");
+            Product.PrintReport(Product.catalog, shortReport);
+            Console.WriteLine("");
+            Console.WriteLine("---Detailed Report---");
+            Product.PrintReport(Product.catalog, detailedReport);
+
+            #endregion
         }
     }
 }

@@ -40,6 +40,14 @@ namespace AdvancedC_02
         {
             return ($"{Name} - ${Price} (Stock : {Stock})");
         }
+
+        public static void PrintReport(List<Product> products, Action<Product> action) {
+            foreach (Product item in products)
+            {
+                action(item);
+            }
+        }
+
     }
 
 }
