@@ -48,7 +48,7 @@ namespace AdvancedC_02
             }
         }
 
-        public static List<string> TransformProducts(List<Product> products,Func<Product,string> transform)
+        public static List<string> TransformProducts(List<Product> products, Func<Product, string> transform)
         {
             List<string> result = new List<string>();
             foreach (Product item in products) {
@@ -57,6 +57,19 @@ namespace AdvancedC_02
             return result;
         }
 
+
+        public static List<Product> FilterProducts(List<Product> products,Predicate<Product> filter)
+            {
+            List<Product>result=new List<Product>();
+            foreach (Product item in products)
+            {
+                if (filter(item))
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
 
     }
 

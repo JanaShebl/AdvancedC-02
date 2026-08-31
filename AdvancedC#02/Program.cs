@@ -111,6 +111,19 @@
                 Console.WriteLine(s);
             }
             #endregion
+
+            #region Task3.3
+
+            // Scenario 5  Low-Stock Alert: Find products with Stock < 20 and print an alert for each in the format: [LOW STOCK] Name: only X left! 
+            Console.WriteLine("");
+            Predicate<Product> isLowStock = p => p.Stock < 20;
+            List<Product>lowStock =Product.FilterProducts(Product.catalog,isLowStock);
+            foreach(Product product in lowStock)
+            {
+                Console.WriteLine($"[LOW STOCK] {product.Name}: only {product.Stock}");
+            }
+
+            #endregion
         }
     }
 }
