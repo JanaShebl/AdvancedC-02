@@ -12,7 +12,7 @@ namespace AdvancedC_02
         public double Price { get; set; }
         public int Stock { get; set; }
 
-        List<Product> catalog = new()
+        public static List<Product> catalog = new()
         {
             new Product{ Id=1,Name="Laptop",Category="Electronics",Price=1200,Stock=10 },
             new Product{ Id=2,Name="Phone",Category="Electronics",Price=800,Stock=25 },
@@ -25,5 +25,21 @@ namespace AdvancedC_02
             new Product{ Id=9,Name="Headphones",Category="Electronics",Price=150,Stock=40 },
             new Product{ Id=10,Name="Jacket",Category="Clothing",Price=120,Stock=15 }
         };
+        public static List<Product> SearchProducts(List<Product> products, Func<Product, bool> isSatisfied)
+        {
+            List<Product> result = new List<Product>();
+            foreach (Product p in products) {
+                if (isSatisfied(p))
+                {
+                    result.Add(p);
+                }
+            }
+            return result;
+        }
+        public override string ToString()
+        {
+            return ($"{Name} - ${Price} (Stock : {Stock})");
+        }
     }
+
 }
