@@ -90,6 +90,27 @@
             Product.PrintReport(Product.catalog, detailedReport);
 
             #endregion
+
+            #region Task3.2
+            // هنا محتاجين نرجع سترينج ف هنستخدم ال func
+            Console.WriteLine("");
+            Func<Product, string> summaryList = p => $"{p.Name} (${p.Price})";
+            //Func<Product, string> priceLabel = p => { if(p.Price>100)=>"Expensive" }
+            Func<Product, string> priceLabel = p => p.Price>100?$"{p.Name}: Expensive" : $"{p.Name}: Affordable";
+            Console.WriteLine("---Summary List---");
+            List<string> summary = Product.TransformProducts(Product.catalog, summaryList);
+            foreach(string s in summary)
+            {
+                Console.WriteLine(s);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("---Price labels---");
+            List<string> PriceLabel = Product.TransformProducts(Product.catalog, priceLabel);
+            foreach (string s in PriceLabel)
+            {
+                Console.WriteLine(s);
+            }
+            #endregion
         }
     }
 }

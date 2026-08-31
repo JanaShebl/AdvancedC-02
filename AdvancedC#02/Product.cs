@@ -48,6 +48,16 @@ namespace AdvancedC_02
             }
         }
 
+        public static List<string> TransformProducts(List<Product> products,Func<Product,string> transform)
+        {
+            List<string> result = new List<string>();
+            foreach (Product item in products) {
+                result.Add(transform(item));
+            }
+            return result;
+        }
+
+
     }
 
 }
